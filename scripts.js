@@ -1,18 +1,21 @@
-function PrimoInferior(num){
+array = ["2", "5", "8", "2", "8", "5", "9", "9", "6", "3",
+                    "4", "6", "3", "1", "2", "1", "2", "3", "7", "1"];
+array.sort();
 
-    if (num < 2) return 0;
-
-    var x = Math.floor(Math.sqrt(num));
-
-    for (var i = 2; i <= x; i++){
-        if (num % i == 0){
-            return null;
+var valor = null;
+var quantidade = 0;
+for (var i = 0; i < array.length; i++) {
+    if (array[i] != valor) {
+        if (quantidade > 0) {
+            document.write("<h3>O numero " + valor + " se repete: " + quantidade + " vezes</h3>");
         }
+        valor = array[i];
+        quantidade = 1;
+    } else {
+        quantidade++;
     }
-
-    return x;
 }
 
-for(var i = 0; i < 30;i++){
-    if(PrimoInferior(i)) document.write("<h3>Primo: ",i,"</h3>");
+if (quantidade > 0) {
+    document.write("<h3>O numero " + valor + " se repete: " + quantidade + " vezes</h3>");
 }
